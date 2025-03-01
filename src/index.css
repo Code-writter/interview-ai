@@ -141,4 +141,9 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .text-outline{
+    -webkit-text-stroke: 1px var(--color-foreground);
+    color: transparent;
+  }
 }

@@ -1,6 +1,6 @@
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import PublicLayout from '@/Layouts/PublicLayout'
-import Home from '@/routes/home'
+import {HomePage} from '@/routes/home'
 
 
 
@@ -17,7 +17,7 @@ export default function App(){
 
             {/* Public Routes */}
             <Route element={<PublicLayout />}>
-                <Route index element={<Home />} />
+                <Route index element={<HomePage />} />
             </Route>
 
             {/* Authentication Routes */}
