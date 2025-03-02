@@ -9,33 +9,38 @@ import SignInPage from './routes/sign-in'
 import SingUpPage from './routes/sign-up'
 import ProtectedLayout from './Layouts/ProtectedLayout'
 import MainLayout from './Layouts/main-layout'
+import Generate from './components/genrate'
+import Dashboard from './routes/dashboard'
+import CreateEditPage from './routes/create-edit-page'
 
 export default function App(){
     return(
         <Router>
             <Routes>
 
-            {/* Public Routes */}
-            <Route element={<PublicLayout />}>
-                <Route index element={<HomePage />} />
-            </Route>
+                {/* Public Routes */}
+                <Route element={<PublicLayout />}>
+                    <Route index element={<HomePage />} />
+                </Route>
 
-            {/* Authentication Routes */}
-            <Route element={<AuthenticationLayout />} >
-                <Route path='/signin/*' element={<SignInPage />} />
-                <Route path='/signup/*' element={<SingUpPage />} />
-            </Route>
+                {/* Authentication Routes */}
+                <Route element={<AuthenticationLayout />} >
+                    <Route path='/signin/*' element={<SignInPage />} />
+                    <Route path='/signup/*' element={<SingUpPage />} />
+                </Route>
 
-            {/* Private Routes */}
+                {/* Private Routes */}
 
-            <Route element={
-                <ProtectedLayout>
-                    <MainLayout />
-                </ProtectedLayout>
-            }>
-
-            </Route>
-
+                <Route element={
+                    <ProtectedLayout>
+                        <MainLayout />
+                    </ProtectedLayout>
+                }>
+                    <Route element={<Generate />} path='/generate' > 
+                        <Route index element={<Dashboard />} />
+                        <Route path=':interviewId' element={<CreateEditPage />} />
+                    </Route>
+                </Route>
             </Routes>
         </Router>
     )
