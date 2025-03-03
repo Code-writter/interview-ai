@@ -1,5 +1,5 @@
 
-import FormMockInterview from "@/components/formMockInteview"
+import {FormMockInterview} from "@/components/formMockInteview"
 import { db } from "@/config/firebase.config"
 import { Interview } from "@/types/user.type"
 import { doc, getDoc } from "firebase/firestore"
@@ -24,7 +24,8 @@ export default function CreateEditPage(){
                     console.log("Error WHile featching the interview Id", error)
                 }
             }
-        }   
+        }  
+        getInterview() 
     })
 
     return(

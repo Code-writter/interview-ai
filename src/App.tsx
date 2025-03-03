@@ -10,8 +10,9 @@ import SingUpPage from './routes/sign-up'
 import ProtectedLayout from './Layouts/ProtectedLayout'
 import MainLayout from './Layouts/main-layout'
 import Generate from './components/genrate'
-import Dashboard from './routes/dashboard'
+import {Dashboard} from './routes/dashboard'
 import CreateEditPage from './routes/create-edit-page'
+import MockLoadPage from './routes/mock-load-page'
 
 export default function App(){
     return(
@@ -39,6 +40,7 @@ export default function App(){
                     <Route element={<Generate />} path='/generate' > 
                         <Route index element={<Dashboard />} />
                         <Route path=':interviewId' element={<CreateEditPage />} />
+                        <Route path='interview/:interviewId' element={<MockLoadPage />} />
                     </Route>
                 </Route>
             </Routes>
